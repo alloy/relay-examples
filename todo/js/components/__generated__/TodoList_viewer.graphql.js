@@ -11,21 +11,21 @@ import type { ConcreteFragment } from 'relay-runtime';
 type Todo_todo$ref = any;
 type Todo_viewer$ref = any;
 import type { FragmentReference } from 'relay-runtime';
-export opaque type TodoList_viewer$ref: FragmentReference = FragmentReference;
+declare export opaque type TodoList_viewer$ref: FragmentReference;
 export type TodoList_viewer = {|
   +todos: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
         +id: string,
         +complete: ?boolean,
-        +__fragments: Todo_todo$ref,
+        +$fragmentRefs: Todo_todo$ref,
       |},
     |}>,
   |},
   +id: string,
   +totalCount: ?number,
   +completedCount: ?number,
-  +__fragments: Todo_viewer$ref,
+  +$fragmentRefs: Todo_viewer$ref,
   +$refType: TodoList_viewer$ref,
 |};
 */

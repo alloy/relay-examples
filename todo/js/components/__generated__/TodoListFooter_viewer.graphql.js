@@ -9,7 +9,7 @@
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
 import type { FragmentReference } from 'relay-runtime';
-export opaque type TodoListFooter_viewer$ref: FragmentReference = FragmentReference;
+declare export opaque type TodoListFooter_viewer$ref: FragmentReference;
 export type TodoListFooter_viewer = {|
   +id: string,
   +completedCount: ?number,

@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 2954a356c11540f485269e744a072ab5
+ * @relayHash e3d5d6efef8833dc754cf2d26258447f
  */
 
 /* eslint-disable */
@@ -13,7 +13,7 @@ type TodoApp_viewer$ref = any;
 export type appQueryVariables = {| |};
 export type appQueryResponse = {|
   +viewer: ?{|
-    +__fragments: TodoApp_viewer$ref,
+    +$fragmentRefs: TodoApp_viewer$ref,
   |},
 |};
 */
