@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash e992239d9c6370d03f05cc57958fbf28
+ * @relayHash 2f3fc1b2a0c0b418b75636a2eff74c3f
  */
 
 /* eslint-disable */
@@ -8,21 +8,21 @@
 'use strict';
 
 /*::
-import type {ConcreteBatch} from 'relay-runtime';
+import type { ConcreteRequest } from 'relay-runtime';
 export type RemoveTodoMutationVariables = {|
   input: {
-    id: string;
-    clientMutationId?: ?string;
-  };
+    id: string,
+    clientMutationId?: ?string,
+  },
 |};
 export type RemoveTodoMutationResponse = {|
   +removeTodo: ?{|
-    +deletedTodoId: ?string;
+    +deletedTodoId: ?string,
     +viewer: ?{|
-      +completedCount: ?number;
-      +totalCount: ?number;
-    |};
-  |};
+      +completedCount: ?number,
+      +totalCount: ?number,
+    |},
+  |},
 |};
 */
 
@@ -42,150 +42,125 @@ mutation RemoveTodoMutation(
 }
 */
 
-const batch /*: ConcreteBatch*/ = {
-  "fragment": {
-    "argumentDefinitions": [
-      {
-        "kind": "LocalArgument",
-        "name": "input",
-        "type": "RemoveTodoInput!",
-        "defaultValue": null
-      }
-    ],
-    "kind": "Fragment",
-    "metadata": null,
-    "name": "RemoveTodoMutation",
-    "selections": [
-      {
-        "kind": "LinkedField",
-        "alias": null,
-        "args": [
-          {
-            "kind": "Variable",
-            "name": "input",
-            "variableName": "input",
-            "type": "RemoveTodoInput!"
-          }
-        ],
-        "concreteType": "RemoveTodoPayload",
-        "name": "removeTodo",
-        "plural": false,
-        "selections": [
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "args": null,
-            "name": "deletedTodoId",
-            "storageKey": null
-          },
-          {
-            "kind": "LinkedField",
-            "alias": null,
-            "args": null,
-            "concreteType": "User",
-            "name": "viewer",
-            "plural": false,
-            "selections": [
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "args": null,
-                "name": "completedCount",
-                "storageKey": null
-              },
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "args": null,
-                "name": "totalCount",
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
-          }
-        ],
-        "storageKey": null
-      }
-    ],
-    "type": "Mutation"
-  },
-  "id": null,
-  "kind": "Batch",
-  "metadata": {},
+const node/*: ConcreteRequest*/ = (function(){
+var v0 = [
+  {
+    "kind": "LocalArgument",
+    "name": "input",
+    "type": "RemoveTodoInput!",
+    "defaultValue": null
+  }
+],
+v1 = [
+  {
+    "kind": "Variable",
+    "name": "input",
+    "variableName": "input",
+    "type": "RemoveTodoInput!"
+  }
+],
+v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "deletedTodoId",
+  "args": null,
+  "storageKey": null
+},
+v3 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "completedCount",
+  "args": null,
+  "storageKey": null
+},
+v4 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "totalCount",
+  "args": null,
+  "storageKey": null
+};
+return {
+  "kind": "Request",
+  "operationKind": "mutation",
   "name": "RemoveTodoMutation",
-  "query": {
-    "argumentDefinitions": [
-      {
-        "kind": "LocalArgument",
-        "name": "input",
-        "type": "RemoveTodoInput!",
-        "defaultValue": null
-      }
-    ],
-    "kind": "Root",
+  "id": null,
+  "text": "mutation RemoveTodoMutation(\n  $input: RemoveTodoInput!\n) {\n  removeTodo(input: $input) {\n    deletedTodoId\n    viewer {\n      completedCount\n      totalCount\n      id\n    }\n  }\n}\n",
+  "metadata": {},
+  "fragment": {
+    "kind": "Fragment",
     "name": "RemoveTodoMutation",
-    "operation": "mutation",
+    "type": "Mutation",
+    "metadata": null,
+    "argumentDefinitions": v0,
     "selections": [
       {
         "kind": "LinkedField",
         "alias": null,
-        "args": [
-          {
-            "kind": "Variable",
-            "name": "input",
-            "variableName": "input",
-            "type": "RemoveTodoInput!"
-          }
-        ],
-        "concreteType": "RemoveTodoPayload",
         "name": "removeTodo",
+        "storageKey": null,
+        "args": v1,
+        "concreteType": "RemoveTodoPayload",
         "plural": false,
         "selections": [
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "args": null,
-            "name": "deletedTodoId",
-            "storageKey": null
-          },
+          v2,
           {
             "kind": "LinkedField",
             "alias": null,
+            "name": "viewer",
+            "storageKey": null,
             "args": null,
             "concreteType": "User",
-            "name": "viewer",
             "plural": false,
             "selections": [
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "args": null,
-                "name": "completedCount",
-                "storageKey": null
-              },
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "args": null,
-                "name": "totalCount",
-                "storageKey": null
-              },
-              {
-                "kind": "ScalarField",
-                "alias": null,
-                "args": null,
-                "name": "id",
-                "storageKey": null
-              }
-            ],
-            "storageKey": null
+              v3,
+              v4
+            ]
           }
-        ],
-        "storageKey": null
+        ]
       }
     ]
   },
-  "text": "mutation RemoveTodoMutation(\n  $input: RemoveTodoInput!\n) {\n  removeTodo(input: $input) {\n    deletedTodoId\n    viewer {\n      completedCount\n      totalCount\n      id\n    }\n  }\n}\n"
+  "operation": {
+    "kind": "Operation",
+    "name": "RemoveTodoMutation",
+    "argumentDefinitions": v0,
+    "selections": [
+      {
+        "kind": "LinkedField",
+        "alias": null,
+        "name": "removeTodo",
+        "storageKey": null,
+        "args": v1,
+        "concreteType": "RemoveTodoPayload",
+        "plural": false,
+        "selections": [
+          v2,
+          {
+            "kind": "LinkedField",
+            "alias": null,
+            "name": "viewer",
+            "storageKey": null,
+            "args": null,
+            "concreteType": "User",
+            "plural": false,
+            "selections": [
+              v3,
+              v4,
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "name": "id",
+                "args": null,
+                "storageKey": null
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
 };
-
-module.exports = batch;
+})();
+(node/*: any*/).hash = '560d32d6f18b4072042cf217a41beb97';
+module.exports = node;

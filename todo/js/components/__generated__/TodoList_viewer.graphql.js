@@ -7,26 +7,42 @@
 'use strict';
 
 /*::
-import type {ConcreteFragment} from 'relay-runtime';
+import type { ConcreteFragment } from 'relay-runtime';
+type Todo_todo$ref = any;
+type Todo_viewer$ref = any;
+import type { FragmentReference } from 'relay-runtime';
+export opaque type TodoList_viewer$ref: FragmentReference = FragmentReference;
 export type TodoList_viewer = {|
   +todos: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
-        +id: string;
-        +complete: ?boolean;
-      |};
-    |}>;
-  |};
-  +id: string;
-  +totalCount: ?number;
-  +completedCount: ?number;
+        +id: string,
+        +complete: ?boolean,
+        +__fragments: Todo_todo$ref,
+      |},
+    |}>,
+  |},
+  +id: string,
+  +totalCount: ?number,
+  +completedCount: ?number,
+  +__fragments: Todo_viewer$ref,
+  +$refType: TodoList_viewer$ref,
 |};
 */
 
 
-const fragment /*: ConcreteFragment*/ = {
-  "argumentDefinitions": [],
+const node/*: ConcreteFragment*/ = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Fragment",
+  "name": "TodoList_viewer",
+  "type": "User",
   "metadata": {
     "connection": [
       {
@@ -39,44 +55,41 @@ const fragment /*: ConcreteFragment*/ = {
       }
     ]
   },
-  "name": "TodoList_viewer",
+  "argumentDefinitions": [],
   "selections": [
     {
       "kind": "LinkedField",
       "alias": "todos",
+      "name": "__TodoList_todos_connection",
+      "storageKey": null,
       "args": null,
       "concreteType": "TodoConnection",
-      "name": "__TodoList_todos_connection",
       "plural": false,
       "selections": [
         {
           "kind": "LinkedField",
           "alias": null,
+          "name": "edges",
+          "storageKey": null,
           "args": null,
           "concreteType": "TodoEdge",
-          "name": "edges",
           "plural": true,
           "selections": [
             {
               "kind": "LinkedField",
               "alias": null,
+              "name": "node",
+              "storageKey": null,
               "args": null,
               "concreteType": "Todo",
-              "name": "node",
               "plural": false,
               "selections": [
+                v0,
                 {
                   "kind": "ScalarField",
                   "alias": null,
-                  "args": null,
-                  "name": "id",
-                  "storageKey": null
-                },
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "args": null,
                   "name": "complete",
+                  "args": null,
                   "storageKey": null
                 },
                 {
@@ -87,70 +100,61 @@ const fragment /*: ConcreteFragment*/ = {
                 {
                   "kind": "ScalarField",
                   "alias": null,
-                  "args": null,
                   "name": "__typename",
+                  "args": null,
                   "storageKey": null
                 }
-              ],
-              "storageKey": null
+              ]
             },
             {
               "kind": "ScalarField",
               "alias": null,
-              "args": null,
               "name": "cursor",
+              "args": null,
               "storageKey": null
             }
-          ],
-          "storageKey": null
+          ]
         },
         {
           "kind": "LinkedField",
           "alias": null,
+          "name": "pageInfo",
+          "storageKey": null,
           "args": null,
           "concreteType": "PageInfo",
-          "name": "pageInfo",
           "plural": false,
           "selections": [
             {
               "kind": "ScalarField",
               "alias": null,
-              "args": null,
               "name": "endCursor",
+              "args": null,
               "storageKey": null
             },
             {
               "kind": "ScalarField",
               "alias": null,
-              "args": null,
               "name": "hasNextPage",
+              "args": null,
               "storageKey": null
             }
-          ],
-          "storageKey": null
+          ]
         }
-      ],
-      "storageKey": null
+      ]
     },
+    v0,
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
-      "name": "id",
-      "storageKey": null
-    },
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "args": null,
       "name": "totalCount",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "completedCount",
+      "args": null,
       "storageKey": null
     },
     {
@@ -158,8 +162,8 @@ const fragment /*: ConcreteFragment*/ = {
       "name": "Todo_viewer",
       "args": null
     }
-  ],
-  "type": "User"
+  ]
 };
-
-module.exports = fragment;
+})();
+(node/*: any*/).hash = 'a3e4165e516c834231092d435f5dd81c';
+module.exports = node;

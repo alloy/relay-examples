@@ -7,46 +7,54 @@
 'use strict';
 
 /*::
-import type {ConcreteFragment} from 'relay-runtime';
+import type { ConcreteFragment } from 'relay-runtime';
+import type { FragmentReference } from 'relay-runtime';
+export opaque type TodoListFooter_viewer$ref: FragmentReference = FragmentReference;
 export type TodoListFooter_viewer = {|
-  +id: string;
-  +completedCount: ?number;
+  +id: string,
+  +completedCount: ?number,
   +completedTodos: ?{|
     +edges: ?$ReadOnlyArray<?{|
       +node: ?{|
-        +id: string;
-        +complete: ?boolean;
-      |};
-    |}>;
-  |};
-  +totalCount: ?number;
+        +id: string,
+        +complete: ?boolean,
+      |},
+    |}>,
+  |},
+  +totalCount: ?number,
+  +$refType: TodoListFooter_viewer$ref,
 |};
 */
 
 
-const fragment /*: ConcreteFragment*/ = {
-  "argumentDefinitions": [],
+const node/*: ConcreteFragment*/ = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+};
+return {
   "kind": "Fragment",
-  "metadata": null,
   "name": "TodoListFooter_viewer",
+  "type": "User",
+  "metadata": null,
+  "argumentDefinitions": [],
   "selections": [
+    v0,
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
-      "name": "id",
-      "storageKey": null
-    },
-    {
-      "kind": "ScalarField",
-      "alias": null,
-      "args": null,
       "name": "completedCount",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "LinkedField",
       "alias": "completedTodos",
+      "name": "todos",
+      "storageKey": "todos(first:2147483647,status:\"completed\")",
       "args": [
         {
           "kind": "Literal",
@@ -62,57 +70,49 @@ const fragment /*: ConcreteFragment*/ = {
         }
       ],
       "concreteType": "TodoConnection",
-      "name": "todos",
       "plural": false,
       "selections": [
         {
           "kind": "LinkedField",
           "alias": null,
+          "name": "edges",
+          "storageKey": null,
           "args": null,
           "concreteType": "TodoEdge",
-          "name": "edges",
           "plural": true,
           "selections": [
             {
               "kind": "LinkedField",
               "alias": null,
+              "name": "node",
+              "storageKey": null,
               "args": null,
               "concreteType": "Todo",
-              "name": "node",
               "plural": false,
               "selections": [
+                v0,
                 {
                   "kind": "ScalarField",
                   "alias": null,
-                  "args": null,
-                  "name": "id",
-                  "storageKey": null
-                },
-                {
-                  "kind": "ScalarField",
-                  "alias": null,
-                  "args": null,
                   "name": "complete",
+                  "args": null,
                   "storageKey": null
                 }
-              ],
-              "storageKey": null
+              ]
             }
-          ],
-          "storageKey": null
+          ]
         }
-      ],
-      "storageKey": "todos{\"first\":2147483647,\"status\":\"completed\"}"
+      ]
     },
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "totalCount",
+      "args": null,
       "storageKey": null
     }
-  ],
-  "type": "User"
+  ]
 };
-
-module.exports = fragment;
+})();
+(node/*: any*/).hash = '2490c58e1768d71f3824c1facd127033';
+module.exports = node;

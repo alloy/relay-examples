@@ -7,44 +7,47 @@
 'use strict';
 
 /*::
-import type {ConcreteFragment} from 'relay-runtime';
+import type { ConcreteFragment } from 'relay-runtime';
+import type { FragmentReference } from 'relay-runtime';
+export opaque type Todo_viewer$ref: FragmentReference = FragmentReference;
 export type Todo_viewer = {|
-  +id: string;
-  +totalCount: ?number;
-  +completedCount: ?number;
+  +id: string,
+  +totalCount: ?number,
+  +completedCount: ?number,
+  +$refType: Todo_viewer$ref,
 |};
 */
 
 
-const fragment /*: ConcreteFragment*/ = {
-  "argumentDefinitions": [],
+const node/*: ConcreteFragment*/ = {
   "kind": "Fragment",
-  "metadata": null,
   "name": "Todo_viewer",
+  "type": "User",
+  "metadata": null,
+  "argumentDefinitions": [],
   "selections": [
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "id",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "totalCount",
+      "args": null,
       "storageKey": null
     },
     {
       "kind": "ScalarField",
       "alias": null,
-      "args": null,
       "name": "completedCount",
+      "args": null,
       "storageKey": null
     }
-  ],
-  "type": "User"
+  ]
 };
-
-module.exports = fragment;
+(node/*: any*/).hash = '1e2b17bb7b92d4521c4e72309d996339';
+module.exports = node;

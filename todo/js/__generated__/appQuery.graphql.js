@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 29eeab7b3a00b8b2d2e213281af1aefb
+ * @relayHash 2954a356c11540f485269e744a072ab5
  */
 
 /* eslint-disable */
@@ -8,9 +8,13 @@
 'use strict';
 
 /*::
-import type {ConcreteBatch} from 'relay-runtime';
+import type { ConcreteRequest } from 'relay-runtime';
+type TodoApp_viewer$ref = any;
+export type appQueryVariables = {| |};
 export type appQueryResponse = {|
-  +viewer: ?{| |};
+  +viewer: ?{|
+    +__fragments: TodoApp_viewer$ref,
+  |},
 |};
 */
 
@@ -48,10 +52,10 @@ fragment TodoList_viewer on User {
   todos(first: 2147483647) {
     edges {
       node {
-        __typename
         id
         complete
         ...Todo_todo
+        __typename
       }
       cursor
     }
@@ -79,19 +83,48 @@ fragment Todo_viewer on User {
 }
 */
 
-const batch /*: ConcreteBatch*/ = {
+const node/*: ConcreteRequest*/ = (function(){
+var v0 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v1 = {
+  "kind": "Literal",
+  "name": "first",
+  "value": 2147483647,
+  "type": "Int"
+},
+v2 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "complete",
+  "args": null,
+  "storageKey": null
+};
+return {
+  "kind": "Request",
+  "operationKind": "query",
+  "name": "appQuery",
+  "id": null,
+  "text": "query appQuery {\n  viewer {\n    ...TodoApp_viewer\n    id\n  }\n}\n\nfragment TodoApp_viewer on User {\n  id\n  totalCount\n  ...TodoListFooter_viewer\n  ...TodoList_viewer\n}\n\nfragment TodoListFooter_viewer on User {\n  id\n  completedCount\n  completedTodos: todos(status: \"completed\", first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n      }\n    }\n  }\n  totalCount\n}\n\nfragment TodoList_viewer on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n        ...Todo_todo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n  totalCount\n  completedCount\n  ...Todo_viewer\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n",
+  "metadata": {},
   "fragment": {
-    "argumentDefinitions": [],
     "kind": "Fragment",
-    "metadata": null,
     "name": "appQuery",
+    "type": "Query",
+    "metadata": null,
+    "argumentDefinitions": [],
     "selections": [
       {
         "kind": "LinkedField",
         "alias": null,
+        "name": "viewer",
+        "storageKey": null,
         "args": null,
         "concreteType": "User",
-        "name": "viewer",
         "plural": false,
         "selections": [
           {
@@ -99,61 +132,46 @@ const batch /*: ConcreteBatch*/ = {
             "name": "TodoApp_viewer",
             "args": null
           }
-        ],
-        "storageKey": null
+        ]
       }
-    ],
-    "type": "Query"
+    ]
   },
-  "id": null,
-  "kind": "Batch",
-  "metadata": {},
-  "name": "appQuery",
-  "query": {
-    "argumentDefinitions": [],
-    "kind": "Root",
+  "operation": {
+    "kind": "Operation",
     "name": "appQuery",
-    "operation": "query",
+    "argumentDefinitions": [],
     "selections": [
       {
         "kind": "LinkedField",
         "alias": null,
+        "name": "viewer",
+        "storageKey": null,
         "args": null,
         "concreteType": "User",
-        "name": "viewer",
         "plural": false,
         "selections": [
+          v0,
           {
             "kind": "ScalarField",
             "alias": null,
-            "args": null,
-            "name": "id",
-            "storageKey": null
-          },
-          {
-            "kind": "ScalarField",
-            "alias": null,
-            "args": null,
             "name": "totalCount",
+            "args": null,
             "storageKey": null
           },
           {
             "kind": "ScalarField",
             "alias": null,
-            "args": null,
             "name": "completedCount",
+            "args": null,
             "storageKey": null
           },
           {
             "kind": "LinkedField",
             "alias": "completedTodos",
+            "name": "todos",
+            "storageKey": "todos(first:2147483647,status:\"completed\")",
             "args": [
-              {
-                "kind": "Literal",
-                "name": "first",
-                "value": 2147483647,
-                "type": "Int"
-              },
+              v1,
               {
                 "kind": "Literal",
                 "name": "status",
@@ -162,170 +180,133 @@ const batch /*: ConcreteBatch*/ = {
               }
             ],
             "concreteType": "TodoConnection",
-            "name": "todos",
             "plural": false,
             "selections": [
               {
                 "kind": "LinkedField",
                 "alias": null,
+                "name": "edges",
+                "storageKey": null,
                 "args": null,
                 "concreteType": "TodoEdge",
-                "name": "edges",
                 "plural": true,
                 "selections": [
                   {
                     "kind": "LinkedField",
                     "alias": null,
+                    "name": "node",
+                    "storageKey": null,
                     "args": null,
                     "concreteType": "Todo",
-                    "name": "node",
                     "plural": false,
                     "selections": [
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
-                        "args": null,
-                        "name": "id",
-                        "storageKey": null
-                      },
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
-                        "args": null,
-                        "name": "complete",
-                        "storageKey": null
-                      }
-                    ],
-                    "storageKey": null
+                      v0,
+                      v2
+                    ]
                   }
-                ],
-                "storageKey": null
+                ]
               }
-            ],
-            "storageKey": "todos{\"first\":2147483647,\"status\":\"completed\"}"
+            ]
           },
           {
             "kind": "LinkedField",
             "alias": null,
+            "name": "todos",
+            "storageKey": "todos(first:2147483647)",
             "args": [
-              {
-                "kind": "Literal",
-                "name": "first",
-                "value": 2147483647,
-                "type": "Int"
-              }
+              v1
             ],
             "concreteType": "TodoConnection",
-            "name": "todos",
             "plural": false,
             "selections": [
               {
                 "kind": "LinkedField",
                 "alias": null,
+                "name": "edges",
+                "storageKey": null,
                 "args": null,
                 "concreteType": "TodoEdge",
-                "name": "edges",
                 "plural": true,
                 "selections": [
                   {
                     "kind": "LinkedField",
                     "alias": null,
+                    "name": "node",
+                    "storageKey": null,
                     "args": null,
                     "concreteType": "Todo",
-                    "name": "node",
                     "plural": false,
                     "selections": [
+                      v0,
+                      v2,
                       {
                         "kind": "ScalarField",
                         "alias": null,
-                        "args": null,
-                        "name": "__typename",
-                        "storageKey": null
-                      },
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
-                        "args": null,
-                        "name": "id",
-                        "storageKey": null
-                      },
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
-                        "args": null,
-                        "name": "complete",
-                        "storageKey": null
-                      },
-                      {
-                        "kind": "ScalarField",
-                        "alias": null,
-                        "args": null,
                         "name": "text",
+                        "args": null,
+                        "storageKey": null
+                      },
+                      {
+                        "kind": "ScalarField",
+                        "alias": null,
+                        "name": "__typename",
+                        "args": null,
                         "storageKey": null
                       }
-                    ],
-                    "storageKey": null
+                    ]
                   },
                   {
                     "kind": "ScalarField",
                     "alias": null,
-                    "args": null,
                     "name": "cursor",
+                    "args": null,
                     "storageKey": null
                   }
-                ],
-                "storageKey": null
+                ]
               },
               {
                 "kind": "LinkedField",
                 "alias": null,
+                "name": "pageInfo",
+                "storageKey": null,
                 "args": null,
                 "concreteType": "PageInfo",
-                "name": "pageInfo",
                 "plural": false,
                 "selections": [
                   {
                     "kind": "ScalarField",
                     "alias": null,
-                    "args": null,
                     "name": "endCursor",
+                    "args": null,
                     "storageKey": null
                   },
                   {
                     "kind": "ScalarField",
                     "alias": null,
-                    "args": null,
                     "name": "hasNextPage",
+                    "args": null,
                     "storageKey": null
                   }
-                ],
-                "storageKey": null
+                ]
               }
-            ],
-            "storageKey": "todos{\"first\":2147483647}"
+            ]
           },
           {
             "kind": "LinkedHandle",
             "alias": null,
+            "name": "todos",
             "args": [
-              {
-                "kind": "Literal",
-                "name": "first",
-                "value": 2147483647,
-                "type": "Int"
-              }
+              v1
             ],
             "handle": "connection",
-            "name": "todos",
             "key": "TodoList_todos",
             "filters": null
           }
-        ],
-        "storageKey": null
+        ]
       }
     ]
-  },
-  "text": "query appQuery {\n  viewer {\n    ...TodoApp_viewer\n    id\n  }\n}\n\nfragment TodoApp_viewer on User {\n  id\n  totalCount\n  ...TodoListFooter_viewer\n  ...TodoList_viewer\n}\n\nfragment TodoListFooter_viewer on User {\n  id\n  completedCount\n  completedTodos: todos(status: \"completed\", first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n      }\n    }\n  }\n  totalCount\n}\n\nfragment TodoList_viewer on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        __typename\n        id\n        complete\n        ...Todo_todo\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n  totalCount\n  completedCount\n  ...Todo_viewer\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n"
+  }
 };
-
-module.exports = batch;
+})();
+(node/*: any*/).hash = '14aafc6977e28bcb7c5b2392f3fdae03';
+module.exports = node;
