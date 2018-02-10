@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash e3d5d6efef8833dc754cf2d26258447f
+ * @relayHash 11668fd1180e8606f0df798e644d0d31
  */
 
 /* eslint-disable */
@@ -9,7 +9,7 @@
 
 /*::
 import type { ConcreteRequest } from 'relay-runtime';
-type TodoApp_viewer$ref = any;
+import type { TodoApp_viewer$ref } from './TodoApp_viewer.graphql';
 export type appQueryVariables = {| |};
 export type appQueryResponse = {|
   +viewer: ?{|

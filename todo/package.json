@@ -2,7 +2,7 @@
   "private": true,
   "scripts": {
     "start": "babel-node ./server.js",
-    "build": "relay-compiler --src ./js/ --schema ./data/schema.graphql",
+    "build": "relay-compiler --src ./js/ --schema ./data/schema.graphql --artifactDirectory ./js/__relay_artifacts__",
     "update-schema": "babel-node ./scripts/updateSchema.js",
     "lint": "eslint ./js"
   },

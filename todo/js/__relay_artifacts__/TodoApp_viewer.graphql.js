@@ -8,8 +8,8 @@
 
 /*::
 import type { ConcreteFragment } from 'relay-runtime';
-type TodoListFooter_viewer$ref = any;
-type TodoList_viewer$ref = any;
+import type { TodoListFooter_viewer$ref } from './TodoListFooter_viewer.graphql';
+import type { TodoList_viewer$ref } from './TodoList_viewer.graphql';
 import type { FragmentReference } from 'relay-runtime';
 declare export opaque type TodoApp_viewer$ref: FragmentReference;
 export type TodoApp_viewer = {|
