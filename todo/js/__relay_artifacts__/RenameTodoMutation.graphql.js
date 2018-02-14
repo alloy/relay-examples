@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash f3838107b927134040df2c4d1773155e
+ * @relayHash 599e5c9e52a140cbaae1a802e5607c33
  */
 
 /* eslint-disable */
@@ -35,6 +35,7 @@ mutation RenameTodoMutation(
     todo {
       id
       text
+      __id: id
     }
   }
 }
@@ -88,6 +89,13 @@ v1 = [
             "name": "text",
             "args": null,
             "storageKey": null
+          },
+          {
+            "kind": "ScalarField",
+            "alias": "__id",
+            "name": "id",
+            "args": null,
+            "storageKey": null
           }
         ]
       }
@@ -99,7 +107,7 @@ return {
   "operationKind": "mutation",
   "name": "RenameTodoMutation",
   "id": null,
-  "text": "mutation RenameTodoMutation(\n  $input: RenameTodoInput!\n) {\n  renameTodo(input: $input) {\n    todo {\n      id\n      text\n    }\n  }\n}\n",
+  "text": "mutation RenameTodoMutation(\n  $input: RenameTodoInput!\n) {\n  renameTodo(input: $input) {\n    todo {\n      id\n      text\n      __id: id\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",

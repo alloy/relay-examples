@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 33ec313f0d26705bad4e07c8bafafe10
+ * @relayHash 1f64ce97c75f1e9756a696e97f0c7038
  */
 
 /* eslint-disable */
@@ -47,11 +47,13 @@ mutation AddTodoMutation(
         complete
         id
         text
+        __id: id
       }
     }
     viewer {
       id
       totalCount
+      __id: id
     }
   }
 }
@@ -73,7 +75,14 @@ v1 = {
   "args": null,
   "storageKey": null
 },
-v2 = [
+v2 = {
+  "kind": "ScalarField",
+  "alias": "__id",
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v3 = [
   {
     "kind": "LinkedField",
     "alias": null,
@@ -136,7 +145,8 @@ v2 = [
                 "name": "text",
                 "args": null,
                 "storageKey": null
-              }
+              },
+              v2
             ]
           }
         ]
@@ -157,7 +167,8 @@ v2 = [
             "name": "totalCount",
             "args": null,
             "storageKey": null
-          }
+          },
+          v2
         ]
       }
     ]
@@ -168,7 +179,7 @@ return {
   "operationKind": "mutation",
   "name": "AddTodoMutation",
   "id": null,
-  "text": "mutation AddTodoMutation(\n  $input: AddTodoInput!\n) {\n  addTodo(input: $input) {\n    todoEdge {\n      __typename\n      cursor\n      node {\n        complete\n        id\n        text\n      }\n    }\n    viewer {\n      id\n      totalCount\n    }\n  }\n}\n",
+  "text": "mutation AddTodoMutation(\n  $input: AddTodoInput!\n) {\n  addTodo(input: $input) {\n    todoEdge {\n      __typename\n      cursor\n      node {\n        complete\n        id\n        text\n        __id: id\n      }\n    }\n    viewer {\n      id\n      totalCount\n      __id: id\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -176,13 +187,13 @@ return {
     "type": "Mutation",
     "metadata": null,
     "argumentDefinitions": v0,
-    "selections": v2
+    "selections": v3
   },
   "operation": {
     "kind": "Operation",
     "name": "AddTodoMutation",
     "argumentDefinitions": v0,
-    "selections": v2
+    "selections": v3
   }
 };
 })();

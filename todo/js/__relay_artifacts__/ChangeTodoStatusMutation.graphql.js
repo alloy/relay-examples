@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 1d4880b0690dcc8476f9266e431eab23
+ * @relayHash eb1c078cf891edfcca6a508e7109ec5c
  */
 
 /* eslint-disable */
@@ -39,10 +39,12 @@ mutation ChangeTodoStatusMutation(
     todo {
       id
       complete
+      __id: id
     }
     viewer {
       id
       completedCount
+      __id: id
     }
   }
 }
@@ -64,7 +66,14 @@ v1 = {
   "args": null,
   "storageKey": null
 },
-v2 = [
+v2 = {
+  "kind": "ScalarField",
+  "alias": "__id",
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v3 = [
   {
     "kind": "LinkedField",
     "alias": null,
@@ -97,7 +106,8 @@ v2 = [
             "name": "complete",
             "args": null,
             "storageKey": null
-          }
+          },
+          v2
         ]
       },
       {
@@ -116,7 +126,8 @@ v2 = [
             "name": "completedCount",
             "args": null,
             "storageKey": null
-          }
+          },
+          v2
         ]
       }
     ]
@@ -127,7 +138,7 @@ return {
   "operationKind": "mutation",
   "name": "ChangeTodoStatusMutation",
   "id": null,
-  "text": "mutation ChangeTodoStatusMutation(\n  $input: ChangeTodoStatusInput!\n) {\n  changeTodoStatus(input: $input) {\n    todo {\n      id\n      complete\n    }\n    viewer {\n      id\n      completedCount\n    }\n  }\n}\n",
+  "text": "mutation ChangeTodoStatusMutation(\n  $input: ChangeTodoStatusInput!\n) {\n  changeTodoStatus(input: $input) {\n    todo {\n      id\n      complete\n      __id: id\n    }\n    viewer {\n      id\n      completedCount\n      __id: id\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -135,13 +146,13 @@ return {
     "type": "Mutation",
     "metadata": null,
     "argumentDefinitions": v0,
-    "selections": v2
+    "selections": v3
   },
   "operation": {
     "kind": "Operation",
     "name": "ChangeTodoStatusMutation",
     "argumentDefinitions": v0,
-    "selections": v2
+    "selections": v3
   }
 };
 })();

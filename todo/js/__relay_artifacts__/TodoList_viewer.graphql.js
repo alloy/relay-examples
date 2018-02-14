@@ -38,6 +38,13 @@ var v0 = {
   "name": "id",
   "args": null,
   "storageKey": null
+},
+v1 = {
+  "kind": "ScalarField",
+  "alias": "__id",
+  "name": "id",
+  "args": null,
+  "storageKey": null
 };
 return {
   "kind": "Fragment",
@@ -97,6 +104,7 @@ return {
                   "name": "Todo_todo",
                   "args": null
                 },
+                v1,
                 {
                   "kind": "ScalarField",
                   "alias": null,
@@ -161,7 +169,8 @@ return {
       "kind": "FragmentSpread",
       "name": "Todo_viewer",
       "args": null
-    }
+    },
+    v1
   ]
 };
 })();

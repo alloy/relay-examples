@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 11668fd1180e8606f0df798e644d0d31
+ * @relayHash bbff5554d49e7be0e7f8b408bc60505d
  */
 
 /* eslint-disable */
@@ -23,7 +23,7 @@ export type appQueryResponse = {|
 query appQuery {
   viewer {
     ...TodoApp_viewer
-    id
+    __id: id
   }
 }
 
@@ -32,6 +32,7 @@ fragment TodoApp_viewer on User {
   totalCount
   ...TodoListFooter_viewer
   ...TodoList_viewer
+  __id: id
 }
 
 fragment TodoListFooter_viewer on User {
@@ -42,10 +43,12 @@ fragment TodoListFooter_viewer on User {
       node {
         id
         complete
+        __id: id
       }
     }
   }
   totalCount
+  __id: id
 }
 
 fragment TodoList_viewer on User {
@@ -55,6 +58,7 @@ fragment TodoList_viewer on User {
         id
         complete
         ...Todo_todo
+        __id: id
         __typename
       }
       cursor
@@ -68,36 +72,46 @@ fragment TodoList_viewer on User {
   totalCount
   completedCount
   ...Todo_viewer
+  __id: id
 }
 
 fragment Todo_todo on Todo {
   complete
   id
   text
+  __id: id
 }
 
 fragment Todo_viewer on User {
   id
   totalCount
   completedCount
+  __id: id
 }
 */
 
 const node/*: ConcreteRequest*/ = (function(){
 var v0 = {
   "kind": "ScalarField",
-  "alias": null,
+  "alias": "__id",
   "name": "id",
   "args": null,
   "storageKey": null
 },
 v1 = {
+  "kind": "ScalarField",
+  "alias": null,
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v2 = {
   "kind": "Literal",
   "name": "first",
   "value": 2147483647,
   "type": "Int"
 },
-v2 = {
+v3 = {
   "kind": "ScalarField",
   "alias": null,
   "name": "complete",
@@ -109,7 +123,7 @@ return {
   "operationKind": "query",
   "name": "appQuery",
   "id": null,
-  "text": "query appQuery {\n  viewer {\n    ...TodoApp_viewer\n    id\n  }\n}\n\nfragment TodoApp_viewer on User {\n  id\n  totalCount\n  ...TodoListFooter_viewer\n  ...TodoList_viewer\n}\n\nfragment TodoListFooter_viewer on User {\n  id\n  completedCount\n  completedTodos: todos(status: \"completed\", first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n      }\n    }\n  }\n  totalCount\n}\n\nfragment TodoList_viewer on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n        ...Todo_todo\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n  totalCount\n  completedCount\n  ...Todo_viewer\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n}\n",
+  "text": "query appQuery {\n  viewer {\n    ...TodoApp_viewer\n    __id: id\n  }\n}\n\nfragment TodoApp_viewer on User {\n  id\n  totalCount\n  ...TodoListFooter_viewer\n  ...TodoList_viewer\n  __id: id\n}\n\nfragment TodoListFooter_viewer on User {\n  id\n  completedCount\n  completedTodos: todos(status: \"completed\", first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n        __id: id\n      }\n    }\n  }\n  totalCount\n  __id: id\n}\n\nfragment TodoList_viewer on User {\n  todos(first: 2147483647) {\n    edges {\n      node {\n        id\n        complete\n        ...Todo_todo\n        __id: id\n        __typename\n      }\n      cursor\n    }\n    pageInfo {\n      endCursor\n      hasNextPage\n    }\n  }\n  id\n  totalCount\n  completedCount\n  ...Todo_viewer\n  __id: id\n}\n\nfragment Todo_todo on Todo {\n  complete\n  id\n  text\n  __id: id\n}\n\nfragment Todo_viewer on User {\n  id\n  totalCount\n  completedCount\n  __id: id\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -131,7 +145,8 @@ return {
             "kind": "FragmentSpread",
             "name": "TodoApp_viewer",
             "args": null
-          }
+          },
+          v0
         ]
       }
     ]
@@ -150,7 +165,7 @@ return {
         "concreteType": "User",
         "plural": false,
         "selections": [
-          v0,
+          v1,
           {
             "kind": "ScalarField",
             "alias": null,
@@ -171,7 +186,7 @@ return {
             "name": "todos",
             "storageKey": "todos(first:2147483647,status:\"completed\")",
             "args": [
-              v1,
+              v2,
               {
                 "kind": "Literal",
                 "name": "status",
@@ -200,21 +215,23 @@ return {
                     "concreteType": "Todo",
                     "plural": false,
                     "selections": [
-                      v0,
-                      v2
+                      v1,
+                      v3,
+                      v0
                     ]
                   }
                 ]
               }
             ]
           },
+          v0,
           {
             "kind": "LinkedField",
             "alias": null,
             "name": "todos",
             "storageKey": "todos(first:2147483647)",
             "args": [
-              v1
+              v2
             ],
             "concreteType": "TodoConnection",
             "plural": false,
@@ -237,8 +254,8 @@ return {
                     "concreteType": "Todo",
                     "plural": false,
                     "selections": [
-                      v0,
-                      v2,
+                      v1,
+                      v3,
                       {
                         "kind": "ScalarField",
                         "alias": null,
@@ -246,6 +263,7 @@ return {
                         "args": null,
                         "storageKey": null
                       },
+                      v0,
                       {
                         "kind": "ScalarField",
                         "alias": null,
@@ -296,7 +314,7 @@ return {
             "alias": null,
             "name": "todos",
             "args": [
-              v1
+              v2
             ],
             "handle": "connection",
             "key": "TodoList_todos",

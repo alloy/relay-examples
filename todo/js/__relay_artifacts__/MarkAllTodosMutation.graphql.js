@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash fb4813582ec2f6d28a6f536416dca5c0
+ * @relayHash 67fe188194cd16cf5bdfe3b5a44da2b3
  */
 
 /* eslint-disable */
@@ -38,10 +38,12 @@ mutation MarkAllTodosMutation(
     changedTodos {
       id
       complete
+      __id: id
     }
     viewer {
       id
       completedCount
+      __id: id
     }
   }
 }
@@ -63,7 +65,14 @@ v1 = {
   "args": null,
   "storageKey": null
 },
-v2 = [
+v2 = {
+  "kind": "ScalarField",
+  "alias": "__id",
+  "name": "id",
+  "args": null,
+  "storageKey": null
+},
+v3 = [
   {
     "kind": "LinkedField",
     "alias": null,
@@ -96,7 +105,8 @@ v2 = [
             "name": "complete",
             "args": null,
             "storageKey": null
-          }
+          },
+          v2
         ]
       },
       {
@@ -115,7 +125,8 @@ v2 = [
             "name": "completedCount",
             "args": null,
             "storageKey": null
-          }
+          },
+          v2
         ]
       }
     ]
@@ -126,7 +137,7 @@ return {
   "operationKind": "mutation",
   "name": "MarkAllTodosMutation",
   "id": null,
-  "text": "mutation MarkAllTodosMutation(\n  $input: MarkAllTodosInput!\n) {\n  markAllTodos(input: $input) {\n    changedTodos {\n      id\n      complete\n    }\n    viewer {\n      id\n      completedCount\n    }\n  }\n}\n",
+  "text": "mutation MarkAllTodosMutation(\n  $input: MarkAllTodosInput!\n) {\n  markAllTodos(input: $input) {\n    changedTodos {\n      id\n      complete\n      __id: id\n    }\n    viewer {\n      id\n      completedCount\n      __id: id\n    }\n  }\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -134,13 +145,13 @@ return {
     "type": "Mutation",
     "metadata": null,
     "argumentDefinitions": v0,
-    "selections": v2
+    "selections": v3
   },
   "operation": {
     "kind": "Operation",
     "name": "MarkAllTodosMutation",
     "argumentDefinitions": v0,
-    "selections": v2
+    "selections": v3
   }
 };
 })();

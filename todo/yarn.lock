@@ -492,9 +492,9 @@ babel-plugin-check-es2015-constants@^6.22.0, babel-plugin-check-es2015-constants
   dependencies:
     babel-runtime "^6.22.0"
 
-"babel-plugin-relay@https://github.com/alloy/relay/releases/download/v1.5.0-plugin.2/babel-plugin-relay-1.5.0-plugin.2.tgz":
-  version "1.5.0-plugin.2"
-  resolved "https://github.com/alloy/relay/releases/download/v1.5.0-plugin.2/babel-plugin-relay-1.5.0-plugin.2.tgz#55fd1ed818d458963b1a35bee0251f2398471226"
+"babel-plugin-relay@https://github.com/alloy/relay/releases/download/v1.5.0-artsy.3/babel-plugin-relay-1.5.0-artsy.3.tgz":
+  version "1.5.0-artsy.3"
+  resolved "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.3/babel-plugin-relay-1.5.0-artsy.3.tgz#5e22fd4eadd1b24e9f89128f9bb2f9f4ec7ab082"
   dependencies:
     babel-runtime "^6.23.0"
     babel-types "^6.24.1"
@@ -4300,14 +4300,14 @@ react-dom@^15.6.1:
     object-assign "^4.1.0"
     prop-types "^15.5.10"
 
-"react-relay@https://github.com/alloy/relay/releases/download/v1.5.0-plugin.2/react-relay-1.5.0-plugin.2.tgz":
-  version "1.5.0-plugin.2"
-  resolved "https://github.com/alloy/relay/releases/download/v1.5.0-plugin.2/react-relay-1.5.0-plugin.2.tgz#8682f1835f7c3e92e8f8c933e77d8687c81e9262"
+"react-relay@https://github.com/alloy/relay/releases/download/v1.5.0-artsy.3/react-relay-1.5.0-artsy.3.tgz":
+  version "1.5.0-artsy.3"
+  resolved "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.3/react-relay-1.5.0-artsy.3.tgz#a060ff5e401cd2a91dc9fe08d42777ad968e6e3e"
   dependencies:
     babel-runtime "^6.23.0"
     fbjs "^0.8.14"
     prop-types "^15.5.8"
-    relay-runtime "1.5.0-plugin.2"
+    relay-runtime "1.5.0-artsy.3"
 
 react@^15.6.1:
   version "15.6.1"
@@ -4370,7 +4370,7 @@ readable-stream@~1.1.9:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-"readdir-enhanced@github:mrmlnc/readdir-enhanced#ISSUE-11_monkey_fix":
+readdir-enhanced@mrmlnc/readdir-enhanced#ISSUE-11_monkey_fix:
   version "2.2.0"
   resolved "https://codeload.github.com/mrmlnc/readdir-enhanced/tar.gz/1580afe4fdf21cd191c202ec599d1ca7d0ab062d"
   dependencies:
@@ -4475,9 +4475,9 @@ regjsparser@^0.1.4:
   dependencies:
     jsesc "~0.5.0"
 
-"relay-compiler@https://github.com/alloy/relay/releases/download/v1.5.0-plugin.2/relay-compiler-1.5.0-plugin.2.tgz":
-  version "1.5.0-plugin.2"
-  resolved "https://github.com/alloy/relay/releases/download/v1.5.0-plugin.2/relay-compiler-1.5.0-plugin.2.tgz#db5e3089e97d9dd8fb3deb7579f32193e1d3a150"
+"relay-compiler@https://github.com/alloy/relay/releases/download/v1.5.0-artsy.3/relay-compiler-1.5.0-artsy.3.tgz":
+  version "1.5.0-artsy.3"
+  resolved "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.3/relay-compiler-1.5.0-artsy.3.tgz#d37ae8938833f9e7b753bf8907c8ca4cb8a653d6"
   dependencies:
     babel-generator "^6.26.0"
     babel-polyfill "^6.20.0"
@@ -4492,7 +4492,7 @@ regjsparser@^0.1.4:
     fbjs "^0.8.14"
     graphql "^0.13.0"
     immutable "~3.7.6"
-    relay-runtime "1.5.0-plugin.2"
+    relay-runtime "1.5.0-artsy.3"
     signedsource "^1.0.0"
     yargs "^9.0.0"
 
@@ -4505,9 +4505,9 @@ relay-devtools@^1.4.0:
     update-notifier "^2.2.0"
     ws "^3.1.0"
 
-relay-runtime@1.5.0-plugin.2, "relay-runtime@https://github.com/alloy/relay/releases/download/v1.5.0-plugin.2/relay-runtime-1.5.0-plugin.2.tgz":
-  version "1.5.0-plugin.2"
-  resolved "https://github.com/alloy/relay/releases/download/v1.5.0-plugin.2/relay-runtime-1.5.0-plugin.2.tgz#d24859070cb9ae7c10f947cc319d8748fd789642"
+relay-runtime@1.5.0-artsy.3, "relay-runtime@https://github.com/alloy/relay/releases/download/v1.5.0-artsy.3/relay-runtime-1.5.0-artsy.3.tgz":
+  version "1.5.0-artsy.3"
+  resolved "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.3/relay-runtime-1.5.0-artsy.3.tgz#ae6a633ab734d9b393a1d3b1e06a9887b4b6da60"
   dependencies:
     babel-runtime "^6.23.0"
     fbjs "^0.8.14"
